@@ -5,9 +5,9 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 app.get('/', function(req, res){
-	res.json({'ip address': req.connection.remoteAddress,
-			  'language': req.headers["accept-language"],
-			  'software': req.headers['user-agent']
+	res.json({'ip address': req.ip,
+			  'language': req.get("accept-language"),
+			  'software': req.get('user-agent')
 	});
 });
 
